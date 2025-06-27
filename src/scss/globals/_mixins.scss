@@ -1,4 +1,3 @@
-
 @use 'sass:math';
 
 /* Адаптивный шрифт */
@@ -15,11 +14,7 @@
   $slope: math.div(($maxSize - $minSize), ($maxWidth - $minWidth));
   $yAxisIntersection: -$minWidth * $slope + $minSize;
 
-  font-size: clamp(
-    #{$minSize * 1rem},
-    #{$yAxisIntersection * 1rem} + #{$slope * 100vw},
-    #{$maxSize * 1rem}
-  );
+  font-size: clamp(#{$minSize * 1rem}, #{$yAxisIntersection * 1rem} + #{$slope * 100vw}, #{$maxSize * 1rem});
 }
 
 /* Flex box tool kit */
@@ -29,7 +24,7 @@
   flex-direction: column;
 }
 
-@mixin flex-row { 
+@mixin flex-row {
   display: flex;
   flex-direction: row;
 }
@@ -41,8 +36,9 @@
 }
 
 @mixin flex-center-column {
-  @include flex-center;
   flex-direction: column;
+
+  @include flex-center;
 }
 
 @mixin flex-center-vert {
@@ -55,42 +51,43 @@
   justify-content: center;
 }
 
-
-/* Media выражения (дополняемо)*/
-
+/* Media выражения (дополняемо) */
 $tablet: 768;
 $large: 1024;
 $desktop: 1280;
 
 @mixin tablet {
-  @media only screen and (min-width: calc($tablet * 1px)) {
+
+  @media only screen and (width >= calc($tablet * 1px)) {
     @content;
   }
 }
 
 @mixin large {
-  @media only screen and (min-width: calc($large * 1px)) {
+
+  @media only screen and (width >= calc($large * 1px)) {
     @content;
   }
 }
 
 @mixin desktop {
-  @media only screen and (min-width: calc($desktop * 1px)) {
+
+  @media only screen and (width >= calc($desktop * 1px)) {
     @content;
   }
 }
 
-
-
 /* Создать квадрат */
+
 @mixin box($width, $height: $width) {
   width: $width;
   height: $height;
 }
 
 /* Отцентрировать, растянуть фоновое изображение */
+
 @mixin cover-background {
-  background-repeat: no-repeat;
-  background-size: cover;
   background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }

@@ -1,1 +1,9 @@
-import '../scss/style.scss'
+import '../scss/style.scss';
+
+function myFunction(a, b) {
+  if (a > b) {
+    return a - b;
+  } else {
+    return b - a;
+  }
+}
