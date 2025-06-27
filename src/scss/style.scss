@@ -1,0 +1,22 @@
+@use 'scss-reset/reset';
+@use 'normalize-scss/sass/normalize';
+@use "./globals/global" as global;
+
+
+.test {
+  background-color: red;
+  @include global.box(200px, 200px)
+}
+
+.test_title {
+  color: global.$light-color;
+  font-size: global.rem(30)
+}
+
+
+body {
+  background-color: green;
+  @include global.tablet {
+    background-color: red;
+  } 
+}
