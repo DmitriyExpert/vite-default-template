@@ -57,21 +57,18 @@ $large: 1024;
 $desktop: 1280;
 
 @mixin tablet {
-
   @media only screen and (width >= calc($tablet * 1px)) {
     @content;
   }
 }
 
 @mixin large {
-
   @media only screen and (width >= calc($large * 1px)) {
     @content;
   }
 }
 
 @mixin desktop {
-
   @media only screen and (width >= calc($desktop * 1px)) {
     @content;
   }
